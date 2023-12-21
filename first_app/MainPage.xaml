@@ -14,7 +14,7 @@
                 SemanticProperties.Description="dot net bot in a race car number eight" />
 
             <Label
-                Text="The First App"
+                Text="Sign In"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
@@ -25,15 +25,20 @@
                 SemanticProperties.Description="Can now develop the mobile phone app" />
 
             <Entry
-                x:Name="NameEntry"
-                Placeholder="Enter your name"
-                SemanticProperties.Description="Enter your name here" />
+                x:Name="UsernameEntry"
+                Placeholder="Enter your username"
+                SemanticProperties.Description="Enter your username" />
+
+            <Entry
+                x:Name="PasswordEntry"
+                Placeholder="Enter your password"
+                SemanticProperties.Description="Enter your username" />
 
             <Button
                 x:Name="CounterBtn"
                 Text="Enter" 
                 SemanticProperties.Hint="Counts the clicks"
-                Clicked="OnCounterClicked"
+                Clicked="OnAuthenticationClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>

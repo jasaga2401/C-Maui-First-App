@@ -2,28 +2,29 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-        string var_name;
+        string var_username;
+        string var_passname;
 
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnAuthenticationClicked(object sender, EventArgs e)
         {
-            count++;
+            var_username = UsernameEntry.Text;
+            var_passname = PasswordEntry.Text;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (var_username == "admin" && var_passname == "passwd")
+            {
+                await DisplayAlert("Notice", "Access allowed", "OK");
+                await Navigation.PushAsync(new HomePage());
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            var_name = NameEntry.Text;
-
-            DisplayAlert("Alert", $"Hello {var_name}", "OK");
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            {
+                await DisplayAlert("Notice", "Access denied", "OK");
+            }
         }
     }
 }
